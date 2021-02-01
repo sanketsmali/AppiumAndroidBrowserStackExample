@@ -26,8 +26,10 @@ public class BrowserStackTestNGTest {
         JSONObject config = (JSONObject) parser.parse(new FileReader("src/test/resources/com/browserstack/run_first_test/first.conf.json"));
 
        
+      
         DesiredCapabilities capabilities = new DesiredCapabilities();
         
+       
         
 
         JSONArray envs = (JSONArray) config.get("environments");
@@ -63,9 +65,7 @@ public class BrowserStackTestNGTest {
         }
 
         
-        String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
-        capabilities.setCapability("build", buildName); 
-        
+     
         driver = new AndroidDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }
 
